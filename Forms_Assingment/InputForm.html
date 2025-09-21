@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>WDV341 4-1 InputForm</title>
+    <style>
+    form {
+        width:600px;
+        margin:auto;
+        background-color:lightblue;	
+        padding-left: 20px;
+    }
+
+    form legend {
+        font-size:larger;
+        text-align:center;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: lightyellow;
+        margin: 2rem auto;
+        max-width: 700px;
+    }
+
+    h1, h2 {
+        color: darkblue;
+    }
+    </style>
+</head>
+<body>
+    <h1>WDV341 Intro to PHP</h1>
+    <h2>4-1 HTML Form Processor</h2>
+    <p>This is an example input form that will demonstrate how a form connects to a server side process.</p>
+
+    <form id="form1" name="form1" method="post" action="formHandler.php">
+    <fieldset>
+        <legend>Example Form</legend>
+        
+        <p>
+        <label for="first_name">First Name:</label> 
+        <input type="text" name="first_name" id="first_name" />
+        </p>
+        
+        <p>
+        <label for="last_name">Last Name:</label> 
+        <input type="text" name="last_name" id="last_name" />
+        </p>
+        
+        <p>
+        <label for="school_name">School Name:</label> 
+        <input type="text" name="school_name" id="school_name" />
+        </p>
+        
+        <!-- New email field -->
+        <p>
+        <label for="customer_email">Customer Email</label>
+        <input type="email" name="customer_email" id="customer_email" />
+        </p>
+
+        <!-- New radio buttons -->
+        <p>
+        <span>Academic Standing:</span><br>
+        <input type="radio" name="academic_standing" id="hs" value="High School" />
+        <label for="hs">High School</label><br>
+
+        <input type="radio" name="academic_standing" id="fr" value="Freshman" />
+        <label for="fr">Freshman</label><br>
+
+        <input type="radio" name="academic_standing" id="so" value="Sophmore" />
+        <label for="so">Sophmore</label><br>
+        </p>
+
+        <!-- New drop down list -->
+        <p>
+        <label for="program">Choose a Program:</label>
+        <select name="program" id="program">
+            <option value="">Select a Program</option>
+            <option value="CIS">Computer Information Systems</option>
+            <option value="GD">Graphic Design</option>
+            <option value="WD">Web Development</option>
+        </select>
+        </p>
+
+        <!-- New Checkboxes -->
+        <p>
+        <input type="checkbox" name="contact_info" id="contact_info" value="Program Information" />
+        <label for="contact_info">Please contact me with program information</label>
+        </p>
+
+        <p>
+        <input type="checkbox" name="contact_advisor" id="contact_advisor" value="Advisor Contact" />
+        <label for="contact_advisor">I would like to contact a program advisor</label>
+        </p>
+
+        <!-- New comment box -->
+        <p>
+        <label for="comments">Comments:</label><br>
+        <textarea name="comments" id="comments" rows="5" cols="40"></textarea>
+        </p>
+
+        <p>
+        <input type="submit" name="button" id="button" value="Submit" />
+        <input type="reset" name="button2" id="button2" value="Reset" />
+        </p>
+    </fieldset>
+    </form>
+
+    <p>&nbsp;</p>
+</body>
+</html>
