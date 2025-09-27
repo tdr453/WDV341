@@ -56,7 +56,7 @@
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             echo "The file ". htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
 
-            // ✅ Display the uploaded image right here
+            // Display the uploaded image right here
             echo "<br><img src='" . $target_file . "' alt='Uploaded Image' style='max-width:300px; margin-top:10px;'>";
         } else {
             echo "Sorry, there was an error uploading your file.";
