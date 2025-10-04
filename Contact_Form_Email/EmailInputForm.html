@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>WDV341 Contact InputForm</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+</style>
+</head>
+<body>
+<div class="form">
+    <h1>WDV341 Intro to PHP</h1>
+    <h2>Contact Form with Email</h2>
+    <p>Please fill out the form below and we will respond to you as soon as possible.</p>
+
+    <form id="form1" name="form1" method="post" action="formHandler.php">
+    <fieldset>
+        <legend>Contact Form</legend>
+        
+        <!-- Contact name and email text boxes-->
+        <p>
+        <label for="contact_name">Contact Name:</label> 
+        <input type="text" name="contact_name" id="contact_name" required/>
+        </p>
+        
+        <p>
+        <label for="contact_email">Contact Email Address:</label> 
+        <input type="email" name="contact_email" id="contact_email" required/>
+        </p>
+
+        <!-- drop down list -->
+        <p>
+        <label for="reason">Reason for Contacting Us:</label>
+        <select name="reason" id="reason" required>
+            <option value="">Select a Reason</option>
+            <option value="general">Learn more about our product</option>
+            <option value="support">Customer Support</option>
+            <option value="sales">Sales and Service</option>
+            <option value="other">Other Reason</option>
+        </select>
+        </p>
+
+        <!-- comment box -->
+        <p>
+        <label for="comments">Comments:</label><br>
+        <textarea name="comments" id="comments" rows="5" cols="40"></textarea>
+        </p>
+
+        <!-- Submit/Reset Buttons -->
+        <p>
+        <input type="submit" name="button" id="button" value="Submit" />
+        <input type="reset" name="button2" id="button2" value="Reset" />
+        </p>
+    </fieldset>
+    </form>
+
+    <p>&nbsp;</p>
+</div>
+
+<footer class="company-banner">
+   Atlas Group Incorporated
+</footer>
+
+</body>
+
+</html>

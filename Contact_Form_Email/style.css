@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgrey;
+    margin: 2rem auto;
+    max-width: 700px;
+    color: #333;
+    text-align: center;
+    padding-bottom: 80px; /*space for footer*/
+}
+
+h1, h2 {
+    color: #003366;
+    text-align: center;
+}
+
+form {
+    width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+form legend {
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+    color: #003366;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"], input[type="reset"] {
+    width: auto;
+    margin-top: 15px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #0055a5;
+}
+
+.company-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #003366;
+    color: #ffffff;
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 30px;
+    border-radius: 4px;
+    letter-spacing: 2px;
+}
+
