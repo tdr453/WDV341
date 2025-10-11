@@ -1,0 +1,7 @@
+# ignore local environment file
+.env
+
+# ignore Composer vendor directory (optional)
+vendor/
+
+
