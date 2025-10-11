@@ -4,4 +4,9 @@
 # ignore Composer vendor directory (optional)
 vendor/
 
+# ignore connection files
+/ConnectionFiles/
+
+
+
 
