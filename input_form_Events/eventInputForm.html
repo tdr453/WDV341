@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Event Input Form</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: lightyellow;
+  margin: 2rem auto;
+  max-width: 700px;
+}
+
+form {
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+form legend {
+  font-size: larger;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.2rem;
+  background-color: darkblue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: navy;
+}
+</style>
+</head>
+<body>
+
+<h1>WDV341 Event Input Form</h1>
+
+  <!--action: calls PHP file to insert data into the table-->
+  <!--Labels: 
+      *each <input> name MUST match &_POST keys
+      *required forces user to input data
+  -->
+<form method="post" action="insertEvent.php">
+  <legend>Enter Event Information</legend>
+
+  <label for="event_name">Event Name:</label>
+  <input type="text" id="event_name" name="event_name" required>
+
+  <label for="event_description">Description:</label>
+  <textarea id="event_description" name="event_description" rows="4" required></textarea>
+
+  <label for="event_presenter">Presenter:</label>
+  <input type="text" id="event_presenter" name="event_presenter" required>
+
+  <label for="event_date">Date:</label>
+  <input type="date" id="event_date" name="event_date" required>
+
+  <label for="event_time">Time:</label>
+  <input type="time" id="event_time" name="event_time" required>
+
+  <button type="submit">Submit Event</button>
+</form>
+
+</body>
+</html>
