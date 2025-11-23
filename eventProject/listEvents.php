@@ -10,9 +10,9 @@ if (!isset($_SESSION['validUser']) || $_SESSION['validUser'] !== true) {
 
 // Query events table
 try {
-    $sql = "SELECT event_id, event_name, event_date, event_description 
-            FROM events 
-            ORDER BY event_date ASC";
+    $sql = "SELECT events_id, events_name, events_date, events_description 
+            FROM wdv341_events 
+            ORDER BY events_date ASC";
     $stmt = $pdo->query($sql);
     $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -37,6 +37,13 @@ try {
     <p><a href="addEvent.php">Add New Event</a> | <a href="logout.php">Logout</a></p>
 
     <?php if ($events): ?>
+
+        <?php
+            if (isset($_GET['message'])) {
+                echo "<p style='color: green; font-weight: bold;'>" . htmlspecialchars($_GET['message']) . "</p>";
+            }
+            ?>
+            
         <table>
             <thead>
                 <tr>
@@ -50,17 +57,25 @@ try {
             <tbody>
             <?php foreach ($events as $event): ?>
                 <tr>
-                    <td><?php echo $event['event_id']; ?></td>
-                    <td><?php echo htmlspecialchars($event['event_name']); ?></td>
-                    <td><?php echo htmlspecialchars($event['event_date']); ?></td>
-                    <td><?php echo htmlspecialchars($event['event_description']); ?></td>
+                    <td><?php echo $event['events_id']; ?></td>
+                    <td><?php echo htmlspecialchars($event['events_name']); ?></td>
+                    <td><?php echo htmlspecialchars($event['events_date']); ?></td>
+                    <td><?php echo htmlspecialchars($event['events_description']); ?></td>
                     <td>
-                        <a href="updateEvent.php?id=<?php echo $event['event_id']; ?>">Update</a> |
-                        <a href="deleteEvent.php?id=<?php echo $event['event_id']; ?>"
-                           onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                        <a href="updateEvent.php?id=<?php echo $event['events_id']; ?>">Update</a> |
+                        <a href="javascript:void(0);" onclick="confirmDelete(<?php echo $event['events_id']; ?>)">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
+
+            <script>
+            function confirmDelete(id) {
+                if (confirm("Are you sure you want to delete this event?")) {
+                    window.location.href = "delete-event.php?id=" + id;
+                }
+            }
+            </script>
+
             </tbody>
         </table>
     <?php else: ?>
