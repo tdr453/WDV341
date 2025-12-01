@@ -45,14 +45,31 @@ h1, h2 {
 <h2>4-1 HTML Form Processor</h2>
 
 <?php
-  //collect the values and post
+// Check if form was submitted via POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  // honeypot check
+  if (!empty($_POST['honeypot'])) {
+      die("Spam detected. Submission rejected.");
+  }
+
+  // Collect the values
   $firstName = $_POST['first_name'];
-  $email = $_POST['customer_email'];
-  $standing = $_POST['academic_standing'];
-  $major = $_POST['program'];
-  $comments = $_POST['comments'];
-  $contactInfo = isset($_POST['contact_info']) ? "Please contact me with program information<br>" : "";
+  $lastName  = $_POST['last_name'];   // <-- Added
+  $email     = $_POST['customer_email'];
+  $standing  = $_POST['academic_standing'];
+  $major     = $_POST['program'];
+  $comments  = $_POST['comments'];
+  $contactInfo    = isset($_POST['contact_info']) ? "Please contact me with program information<br>" : "";
   $contactAdvisor = isset($_POST['contact_advisor']) ? "I would like to contact a program advisor<br>" : "";
+
+  // Success message
+  echo "<p>Thank you $firstName $lastName</p>";
+  echo "<p>A signup confirmation has been sent to $email. Thank you for your support!</p>";
+
+} else {
+  echo "Invalid request. Please submit the form.";
+}
 ?>
 
 <p>
