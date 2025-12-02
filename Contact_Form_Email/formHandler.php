@@ -2,6 +2,20 @@
 //Call PHPMailer (sendEmail.php)
 require __DIR__ . '/sendEmail.php';
 
+// Honeypot check
+if (!empty($_POST['honeypot'])) {
+    // Send alert email to site owner
+    $date = date('m/d/Y H:i:s');
+    $subjectAlert = "Honeypot Triggered - Bot Attempt";
+    $plainAlert   = "A bot attempted to submit the contact form on {$date}.";
+    $htmlAlert    = "<html><body><h2>Honeypot Triggered</h2><p>A bot attempted to submit the contact form on {$date}.</p></body></html>";
+
+    sendMail('trpk152@gmail.com','Site Owner',$subjectAlert,$htmlAlert,$plainAlert);
+
+    // Stop normal processing
+    die("<h2>Invalid submission detected.</h2>");
+}
+
 //Collect inputs, filter, and trim
 $contactName  = htmlspecialchars(trim($_POST['contact_name']   ?? ''));
 $contactEmail = filter_var($_POST['contact_email'] ?? '', FILTER_SANITIZE_EMAIL);
